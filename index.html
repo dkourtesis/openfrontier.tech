@@ -74,4 +74,128 @@
     .grid{display:grid; gap:24px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
     .feature{background:var(--card); border:1px solid color-mix(in oklab, var(--fg) 10%, transparent); border-radius:18px; padding:22px}
     .kicker{font-weight:700; font-size:.9rem; color:var(--muted)}
-    footer{padding:40px 0; color:var(--mut
+    footer{padding:40px 0; color:var(--muted); border-top:1px solid color-mix(in oklab, var(--fg) 10%, transparent)}
+    .small{font-size:.9rem}
+    .chip{
+      display:inline-block; padding:.25rem .6rem; border-radius:999px;
+      border:1px solid color-mix(in oklab, var(--fg) 10%, transparent); background:var(--card); font-size:.82rem; color:var(--muted)
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Open Frontier</span>
+      </a>
+      <nav class="links">
+        <a href="#work" class="small">Work</a>
+        <a href="#approach" class="small">Approach</a>
+        <a href="#contact" class="small">Contact</a>
+        <a class="btn ghost small" href="https://github.com/dkourtesis" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Special Projects</div>
+        <h1>Frontier tech, applied to real constraints</h1>
+        <p class="lead">
+          We take on selected consulting briefs where advanced AI, autonomy, sensing, or simulation can unlock step-changes in industrial performance.
+        </p>
+        <div class="cta">
+          <a class="btn" href="mailto:hello@openfrontier.tech">Start a conversation</a>
+          <a class="btn ghost" href="#work">See the focus</a>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <span class="chip">Scope</span>
+            <h3>Hard problems only</h3>
+            <p>Ambiguous goals, high stakes, tight constraints. Small, senior teams.</p>
+          </div>
+          <div class="card">
+            <span class="chip">Method</span>
+            <h3>From framing to pilot</h3>
+            <p>Define the right question, test feasibility, prove value in the field.</p>
+          </div>
+          <div class="card">
+            <span class="chip">Ethos</span>
+            <h3>Independent & vendor-neutral</h3>
+            <p>No reselling, no hype. Evidence, economics, and execution.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="container grid">
+        <article class="feature">
+          <div class="kicker">Focus</div>
+          <h2>Applied AI & decision intelligence</h2>
+          <p>Forecasting, optimization, anomaly detection, and operator-in-the-loop systems.</p>
+        </article>
+        <article class="feature">
+          <div class="kicker">Focus</div>
+          <h2>Autonomy & sensing</h2>
+          <p>Perception, navigation, edge inference, and resilient comms for complex environments.</p>
+        </article>
+        <article class="feature">
+          <div class="kicker">Focus</div>
+          <h2>Simulation & verification</h2>
+          <p>Digital twins, synthetic data, model validation, and safety cases.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="approach" class="section">
+      <div class="container grid">
+        <article class="feature">
+          <div class="kicker">Service</div>
+          <h2>Problem framing</h2>
+          <p>Clarify objectives, constraints, data reality, and ROI. Short discovery sprints.</p>
+        </article>
+        <article class="feature">
+          <div class="kicker">Service</div>
+          <h2>Technical due diligence</h2>
+          <p>Feasibility, risks, and trade-offs across data, models, systems, and operations.</p>
+        </article>
+        <article class="feature">
+          <div class="kicker">Service</div>
+          <h2>Pilot design & rollout</h2>
+          <p>Minimal viable pilot, success metrics, and on-site execution with your team.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="small">Email: <a href="mailto:hello@openfrontier.tech">hello@openfrontier.tech</a></p>
+        <p class="small">We engage a few projects per quarter. Briefs in 5–10 lines are ideal.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container small">
+      © <span id="y"></span> Open Frontier. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Tiny enhancement: current year + smooth scroll for same-page links
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+  </script>
+</body>
+</html>
