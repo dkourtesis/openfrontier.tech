@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><!-- 🔧 Your Site Name -->Example — Modern Static Landing</title>
+  <meta name="description" content="<!-- 🔧 One-line description for search engines -->" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Example — Modern Static Landing" />
+  <meta property="og:description" content="<!-- 🔧 Description shown in link previews -->" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com" />
+  <meta property="og:image" content="<!-- 🔧 Absolute URL to a 1200x630 image -->" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicons (optional) -->
+  <!-- 🔧 Replace with your own favicon files or remove these lines
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  -->
+
+  <style>
+    :root{
+      --bg: #0b0c0f;
+      --fg: #e6e7eb;
+      --muted:#a0a4ab;
+      --card:#111318;
+      --accent:#4f8cff;
+      --accent-ink:#081933;
+      --ring: rgba(79,140,255,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#ffffff; --fg:#0c0d10; --muted:#61636a; --card:#f6f7f9;
+        --accent:#2251ff; --accent-ink:#ffffff; --ring: rgba(34,81,255,.25);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--fg);
+      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(6px);
+      background:color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom:1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; height:60px}
+    .brand{display:flex; align-items:center; gap:.6rem; font-weight:700}
+    .brand .logo{
+      width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--accent),#7aa8ff);
+      box-shadow:0 0 0 6px var(--ring);
+    }
+    .links{display:flex; gap:1rem}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+      padding:.7rem 1rem; border:1px solid transparent; border-radius:12px; font-weight:600;
+      background:var(--accent); color:var(--accent-ink); box-shadow:0 8px 20px -10px var(--ring);
+      transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 12px 26px -12px var(--ring)}
+    .btn.ghost{background:transparent; color:var(--fg); border-color:color-mix(in oklab, var(--fg) 18%, transparent)}
+    .hero{
+      padding:96px 0 56px; text-align:center;
+      background:
+        radial-gradient(1200px 400px at 50% -120px, color-mix(in oklab, var(--accent) 12%, transparent), transparent),
+        linear-gradient(180deg, color-mix(in oklab, var(--card) 65%, transparent), transparent 40%);
+    }
+    .eyebrow{color:var(--muted); font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:.82rem}
+    h1{margin:.5rem 0 1rem; font-size:clamp(28px,4.2vw,48px); line-height:1.1}
+    .lead{max-width:720px; margin:0 auto 1.25rem; color:var(--muted)}
+    .cta{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:1rem}
+    .cards{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin:42px auto 0; max-width:1000px}
+    .card{
+      background:var(--card); border:1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+      border-radius:16px; padding:18px; text-align:left;
+    }
+    .card h3{margin:.2rem 0 .3rem; font-size:1.05rem}
+    .card p{margin:0; color:var(--muted); font-size:.95rem}
+    .section{padding:64px 0}
+    .grid{display:grid; gap:24px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    .feature{background:var(--card); border:1px solid color-mix(in oklab, var(--fg) 10%, transparent); border-radius:18px; padding:22px}
+    .kicker{font-weight:700; font-size:.9rem; color:var(--muted)}
+    footer{padding:40px 0; color:var(--muted); border-top:1px solid color-mix(in oklab, var(--fg) 10%, transparent)}
+    .small{font-size:.9rem}
+    .chip{
+      display:inline-block; padding:.25rem .6rem; border-radius:999px;
+      border:1px solid color-mix(in oklab, var(--fg) 10%, transparent); background:var(--card); font-size:.82rem; color:var(--muted)
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="logo" aria-hidden="true"></span>
+        <span><!-- 🔧 Your Brand -->Example</span>
+      </a>
+      <nav class="links">
+        <a href="#features" class="small">Features</a>
+        <a href="#about" class="small">About</a>
+        <a href="#contact" class="small">Contact</a>
+        <a class="btn ghost small" href="https://github.com/<!-- 🔧 your-user/your-repo -->" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">— <!-- 🔧 Tagline -->Launch fast, look sharp</div>
+        <h1><!-- 🔧 Headline -->A modern static landing that loads in a blink</h1>
+        <p class="lead"><!-- 🔧 Subhead -->
+          Describe your value in one clear sentence. No fluff, no dependencies, just you and your users.
+        </p>
+        <div class="cta">
+          <a class="btn" href="mailto:hello@example.com">Get in touch</a>
+          <a class="btn ghost" href="#features">See features</a>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <span class="chip">Fast</span>
+            <h3>Zero JS for content</h3>
+            <p>Pure HTML+CSS. Lighthouse-friendly and easy to host on GitHub Pages.</p>
+          </div>
+          <div class="card">
+            <span class="chip">Reliable</span>
+            <h3>CDN-backed</h3>
+            <p>Served from GitHub’s edge; add Cloudflare later without changing code.</p>
+          </div>
+          <div class="card">
+            <span class="chip">Private</span>
+            <h3>No trackers</h3>
+            <p>No fonts, no analytics by default. Add only what you need.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container grid">
+        <article class="feature">
+          <div class="kicker">Feature</div>
+          <h2>Custom domain & HTTPS</h2>
+          <p>Point your domain to GitHub Pages and get automatic TLS certificates.</p>
+        </article>
+        <article class="feature">
+          <div class="kicker">Feature</div>
+          <h2>SEO & Social ready</h2>
+          <p>Meta tags included. Replace the OG image and you’re set for link previews.</p>
+        </article>
+        <article class="feature">
+          <div class="kicker">Feature</div>
+          <h2>Accessible by default</h2>
+          <p>Good contrast, semantic HTML, and keyboard-friendly interactions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <p class="small" style="max-width:70ch">
+          <!-- 🔧 Replace with a short “about” -->
+          We craft straightforward products. This landing page is deliberately minimal:
+          it’s easy to maintain, fast to load, and simple to extend as you grow.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="small">Email us: <a href="mailto:hello@example.com">hello@example.com</a></p>
+        <!-- If you need a form without a server, consider form tools like Formspree (free tier). -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container small">
+      © <span id="y"></span> <!-- 🔧 Your Brand -->Example. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Tiny enhancement: current year + smooth scroll for same-page links
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+  </script>
+</body>
+</html>
