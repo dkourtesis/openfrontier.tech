@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Open Frontier</title>
+  <title>Contact - Open Frontier</title>
   <meta name="color-scheme" content="dark light" />
   <style>
     :root{
@@ -75,6 +75,10 @@
       color: var(--muted);
     }
     
+    nav a.active {
+      color: var(--muted);
+    }
+    
     /* Main content */
     main {
       flex: 1;
@@ -82,26 +86,59 @@
       align-items: center;
       justify-content: center;
       padding: 0 60px;
+    }
+    
+    .contact-content {
+      max-width: 600px;
+      width: 100%;
       text-align: center;
     }
     
-    .hero-quote {
-      max-width: 900px;
-    }
-    
-    .hero-quote blockquote {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+    .contact-content h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 300;
-      line-height: 1.1;
       letter-spacing: -0.03em;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
+      text-align: center;
     }
     
-    .hero-quote cite {
+    .contact-info {
+      display: grid;
+      gap: 40px;
+    }
+    
+    .contact-section h2 {
       font-size: 18px;
-      font-style: normal;
-      color: var(--muted);
       font-weight: 400;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    
+    .contact-section p {
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    
+    .contact-section a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .contact-section a:hover {
+      color: var(--muted);
+    }
+    
+    .company-details {
+      margin-top: 20px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    
+    .company-details .detail-row {
+      margin-bottom: 8px;
     }
     
     /* Footer */
@@ -134,9 +171,9 @@
         padding: 0 30px;
       }
       
-      .hero-quote blockquote {
+      .contact-content h1 {
         font-size: clamp(1.8rem, 8vw, 2.5rem);
-        margin-bottom: 30px;
+        margin-bottom: 40px;
       }
       
       footer {
@@ -169,6 +206,10 @@
         padding: 0 20px;
       }
       
+      .contact-info {
+        gap: 30px;
+      }
+      
       footer {
         padding: 20px;
       }
@@ -184,17 +225,56 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <div class="hero-quote">
-      <blockquote>
-        The best way to predict the future is to invent it.
-      </blockquote>
-      <cite>— Alan Kay</cite>
+    <div class="contact-content">
+      <h1>Contact</h1>
+      
+      <div class="contact-info">        
+        <div class="contact-section">
+          <p><a href="mailto:hello@openfrontier.tech">hello@openfrontier.tech</a></p>
+        </div>
+        
+        <div class="contact-section company-details">
+          <h2>Company Information</h2>
+          
+          <div class="detail-row">
+            <p><strong>Open Frontier Single Member Private Company</strong></p>
+          </div>
+          
+          <div class="detail-row">
+            <p>Registered Office: 78 Georgiou Papandreou Str., 54655 Thessaloniki, Greece</p>
+          </div>
+          
+          <div class="detail-row">
+            <p>GEMI No.: 187244406000</p>
+          </div>
+          
+          <div class="detail-row">
+            <p>VAT No.: EL803006313</p>
+          </div>
+          
+          <div style="margin-top: 30px;">
+            <p><strong>Open Frontier Mονοπρόσωπη Ιδιωτική Κεφαλαιουχική Εταιρεία</strong></p>
+          </div>
+          
+          <div class="detail-row">
+            <p>Έδρα: Γεωργίου Παπανδρέου 78, 54655 Θεσσαλονίκη</p>
+          </div>
+          
+          <div class="detail-row">
+            <p>ΑΡ. ΓΕΜΗ: 187244406000</p>
+          </div>
+          
+          <div class="detail-row">
+            <p>ΑΦΜ: 803006313</p>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
