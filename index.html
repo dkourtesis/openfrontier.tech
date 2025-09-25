@@ -3,199 +3,67 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Open Frontier — Frontier tech, applied.</title>
-  <meta name="description" content="A consulting studio that takes on special projects where frontier technologies meet real industry constraints." />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Open Frontier — Frontier tech, applied." />
-  <meta property="og:description" content="Special projects at the edge of AI, autonomy, sensing, and simulation." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://openfrontier.tech" />
-  <meta property="og:image" content="https://openfrontier.tech/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-
+  <title>Open Frontier</title>
+  <meta name="color-scheme" content="dark light" />
   <style>
     :root{
-      --bg: #0b0c0f; --fg: #e6e7eb; --muted:#a0a4ab; --card:#111318;
-      --accent:#4f8cff; --accent-ink:#081933; --ring: rgba(79,140,255,.35);
-    }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#ffffff; --fg:#0c0d10; --muted:#61636a; --card:#f6f7f9;
-        --accent:#2251ff; --accent-ink:#ffffff; --ring: rgba(34,81,255,.25); }
+      --bg:#0b1220; --bg2:#111a32; --text:#e9eef9; --muted:#a8b3c8; --border:rgba(255,255,255,.12);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; background:var(--bg); color:var(--fg);
-      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:1100px; margin:0 auto; padding:0 20px}
-    header{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(6px);
-      background:color-mix(in oklab, var(--bg) 85%, transparent);
-      border-bottom:1px solid color-mix(in oklab, var(--fg) 10%, transparent);
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; height:60px}
-    .brand{display:flex; align-items:center; gap:.6rem; font-weight:700}
-    .brand .logo{
-      width:28px; height:28px; border-radius:8px;
-      background:linear-gradient(135deg,var(--accent),#7aa8ff);
-      box-shadow:0 0 0 6px var(--ring);
-    }
-    .links{display:flex; gap:1rem}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
-      padding:.7rem 1rem; border:1px solid transparent; border-radius:12px; font-weight:600;
-      background:var(--accent); color:var(--accent-ink); box-shadow:0 8px 20px -10px var(--ring);
-      transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow:0 12px 26px -12px var(--ring)}
-    .btn.ghost{background:transparent; color:var(--fg); border-color:color-mix(in oklab, var(--fg) 18%, transparent)}
-    .hero{
-      padding:96px 0 56px; text-align:center;
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
       background:
-        radial-gradient(1200px 400px at 50% -120px, color-mix(in oklab, var(--accent) 12%, transparent), transparent),
-        linear-gradient(180deg, color-mix(in oklab, var(--card) 65%, transparent), transparent 40%);
+        radial-gradient(1000px 700px at 20% 0%, #173059 0%, transparent 60%),
+        radial-gradient(800px 600px at 90% 10%, #0f5a9a 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      display:flex; flex-direction:column; min-height:100dvh;
     }
-    .eyebrow{color:var(--muted); font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:.82rem}
-    h1{margin:.5rem 0 1rem; font-size:clamp(28px,4.2vw,48px); line-height:1.1}
-    .lead{max-width:720px; margin:0 auto 1.25rem; color:var(--muted)}
-    .cta{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:1rem}
-    .cards{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin:42px auto 0; max-width:1000px}
+    main{flex:1; display:grid; place-items:center; padding:8vh 5vw}
     .card{
-      background:var(--card); border:1px solid color-mix(in oklab, var(--fg) 10%, transparent);
-      border-radius:16px; padding:18px; text-align:left;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid var(--border);
+      border-radius:20px;
+      backdrop-filter: blur(8px);
+      padding: clamp(24px, 6vw, 56px);
+      text-align:center;
+      max-width: 820px; width:min(92ch, 100%);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-    .card h3{margin:.2rem 0 .3rem; font-size:1.05rem}
-    .card p{margin:0; color:var(--muted); font-size:.95rem}
-    .section{padding:64px 0}
-    .grid{display:grid; gap:24px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    .feature{background:var(--card); border:1px solid color-mix(in oklab, var(--fg) 10%, transparent); border-radius:18px; padding:22px}
-    .kicker{font-weight:700; font-size:.9rem; color:var(--muted)}
-    footer{padding:40px 0; color:var(--muted); border-top:1px solid color-mix(in oklab, var(--fg) 10%, transparent)}
-    .small{font-size:.9rem}
-    .chip{
-      display:inline-block; padding:.25rem .6rem; border-radius:999px;
-      border:1px solid color-mix(in oklab, var(--fg) 10%, transparent); background:var(--card); font-size:.82rem; color:var(--muted)
+    h1{margin:0 0 10px; font-size:clamp(2rem, 6vw, 3.2rem); letter-spacing:.01em}
+    p{margin:0; color:var(--muted); font-size:clamp(1rem, 2.2vw, 1.2rem)}
+    footer{
+      border-top:1px solid var(--border);
+      color:var(--muted); font-size:.92rem; line-height:1.5;
+      padding:16px 5vw 28px; text-align:center;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
     }
+    .line{opacity:.9}
+    .sp{display:block; margin-top:8px}
+    @media (min-width: 860px){
+      .sp{display:inline; margin-top:0}
+    }
+    a{color:inherit; text-decoration:underline}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#top">
-        <span class="logo" aria-hidden="true"></span>
-        <span>Open Frontier</span>
-      </a>
-      <nav class="links">
-        <a href="#work" class="small">Work</a>
-        <a href="#approach" class="small">Approach</a>
-        <a href="#contact" class="small">Contact</a>
-        <a class="btn ghost small" href="https://github.com/dkourtesis" target="_blank" rel="noreferrer">GitHub</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <div class="container">
-        <div class="eyebrow">Special Projects</div>
-        <h1>Frontier tech, applied to real constraints</h1>
-        <p class="lead">
-          We take on selected consulting briefs where advanced AI, autonomy, sensing, or simulation can unlock step-changes in industrial performance.
-        </p>
-        <div class="cta">
-          <a class="btn" href="mailto:hello@openfrontier.tech">Start a conversation</a>
-          <a class="btn ghost" href="#work">See the focus</a>
-        </div>
-
-        <div class="cards">
-          <div class="card">
-            <span class="chip">Scope</span>
-            <h3>Hard problems only</h3>
-            <p>Ambiguous goals, high stakes, tight constraints. Small, senior teams.</p>
-          </div>
-          <div class="card">
-            <span class="chip">Method</span>
-            <h3>From framing to pilot</h3>
-            <p>Define the right question, test feasibility, prove value in the field.</p>
-          </div>
-          <div class="card">
-            <span class="chip">Ethos</span>
-            <h3>Independent & vendor-neutral</h3>
-            <p>No reselling, no hype. Evidence, economics, and execution.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="work" class="section">
-      <div class="container grid">
-        <article class="feature">
-          <div class="kicker">Focus</div>
-          <h2>Applied AI & decision intelligence</h2>
-          <p>Forecasting, optimization, anomaly detection, and operator-in-the-loop systems.</p>
-        </article>
-        <article class="feature">
-          <div class="kicker">Focus</div>
-          <h2>Autonomy & sensing</h2>
-          <p>Perception, navigation, edge inference, and resilient comms for complex environments.</p>
-        </article>
-        <article class="feature">
-          <div class="kicker">Focus</div>
-          <h2>Simulation & verification</h2>
-          <p>Digital twins, synthetic data, model validation, and safety cases.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="approach" class="section">
-      <div class="container grid">
-        <article class="feature">
-          <div class="kicker">Service</div>
-          <h2>Problem framing</h2>
-          <p>Clarify objectives, constraints, data reality, and ROI. Short discovery sprints.</p>
-        </article>
-        <article class="feature">
-          <div class="kicker">Service</div>
-          <h2>Technical due diligence</h2>
-          <p>Feasibility, risks, and trade-offs across data, models, systems, and operations.</p>
-        </article>
-        <article class="feature">
-          <div class="kicker">Service</div>
-          <h2>Pilot design & rollout</h2>
-          <p>Minimal viable pilot, success metrics, and on-site execution with your team.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-        <p class="small">Email: <a href="mailto:hello@openfrontier.tech">hello@openfrontier.tech</a></p>
-        <p class="small">We engage a few projects per quarter. Briefs in 5–10 lines are ideal.</p>
-      </div>
+  <main>
+    <section class="card" aria-labelledby="title">
+      <h1 id="title">Open Frontier</h1>
+    </br>
+      <p>Our online home is under construction</p>
     </section>
   </main>
 
   <footer>
-    <div class="container small">
-      © <span id="y"></span> Open Frontier. All rights reserved.
+    <div class="line" lang="en"></br>
+      OPEN FRONTIER SINGLE MEMBER P.C. </br> Registered Office: 78 Georgiou Papandreou Str., 54655 Thessaloniki, Greece – GEMI No.: 187244406000 – VAT No.: EL803006313 – Contact: <a href="mailto:hello@openfrontier.tech">hello@openfrontier.tech</a>
+    </div>
+        <div class="line sp" lang="el"> </br> </div>
+    <div class="line sp" lang="el"></br>
+      OPEN FRONTIER ΜΟΝΟΠΡΟΣΩΠΗ ΙΚΕ </br> Έδρα: Γεωργίου Παπανδρέου 78, 54655 Θεσσαλονίκη – ΑΡ. ΓΕΜΗ: 187244406000 – ΑΦΜ: 803006313 – Επικοινωνία: <a href="mailto:hello@openfrontier.tech">hello@openfrontier.tech</a>
     </div>
   </footer>
-
-  <script>
-    // Tiny enhancement: current year + smooth scroll for same-page links
-    document.getElementById('y').textContent = new Date().getFullYear();
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
-      });
-    });
-  </script>
 </body>
 </html>
